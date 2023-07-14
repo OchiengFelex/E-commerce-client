@@ -1,0 +1,36 @@
+.order-main {
+    background-color: rgb(130, 223, 130);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    width: 97%;
+    height: auto;
+    background: cover;
+}
+
+.order-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+}
+
+.list {
+    width: 40%;
+    height: auto;
+    border-radius: 8px;
+    display: inline-block;
+    background-color: #E3E2DF;
+    box-shadow: 10px 10px 15px #f9004d;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+}

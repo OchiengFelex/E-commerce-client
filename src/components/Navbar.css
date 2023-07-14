@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    height: 10vh;
+    width: 97%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    padding-left: 20px;
+    margin: 15px 20px;
+    border-radius: 8px;
+    background-color: #276d07;
+}
+
+.nav-logo {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 5rem;
+}
+
+.nav-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-decoration: none;
+    margin-right: 0.2rem;
+    text-align: center;
+    width: 65vw;
+    list-style: none;
+}
+
+.nav-item {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+    padding: 5px 14px;
+}
+
+.nav-item:hover {
+    background-color: #f9004d;
+    transition: 0.3s ease-in-out;
+    border-radius: 8px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    margin-right: 10px;
+}
+
+.nav-link svg {
+    margin-right: 5px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown .nav-link {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    list-style: none;
+    text-align: start;
+    border-radius: 5px;
+}
+
+.dropdown .nav-link svg {
+    margin-right: 0.5rem;
+}
+
+.dropdown .dropdown-menu {
+    position: absolute;
+    background-color: green;
+    position: absolute;
+    width: 8rem;
+    top: 2.9rem;
+    list-style: none;
+    text-align: start;
+    border-radius: 5px;
+}
+
+.dropdown .nav-link:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin: 5px;
+}
+
+.dropdown-item:hover {
+    background-color: #f9004d;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .search {
+        margin-top: 10px;
+    }
+
+    .links {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    .nav-link {
+        margin-bottom: 10px;
+    }
+
+    .side {
+        margin-top: 0;
+    }
+}

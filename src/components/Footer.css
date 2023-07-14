@@ -1,0 +1,117 @@
+.footer {
+    width: 97%;
+    padding: 10px;
+    margin: 10px 15px;
+    border-radius: 8px;
+    height: 48vh;
+    background-color: #1A1A1D;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 850px) {
+    .footer {
+        flex-direction: column;
+    }
+
+    .icons {
+        flex-direction: column;
+    }
+
+    #icons-one {
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    #icons-two {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+    }
+}
+
+#icons-one {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: whitesmoke;
+    font-weight: bolder;
+}
+
+#icons-two {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: whitesmoke;
+    font-weight: bolder;
+    padding-right: 20px;
+    padding-top: 30px;
+}
+
+.footer-main {
+    padding-top: 30px;
+}
+
+span {
+    padding: 8px;
+    border-radius: 5px;
+}
+
+span:hover {
+    background-color: green;
+    transition: 1s;
+}
+
+button {
+    background-color: #f9004d;
+    font-weight: bolder;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+button a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+button:hover {
+    background-color: green;
+    transition: 1s;
+}
+
+h4 {
+    color: whitesmoke;
+    font-weight: bolder;
+    padding-bottom: 10px;
+}
+
+/* Additional Responsive Styles */
+@media screen and (max-width: 768px) {
+    .footer {
+        height: auto;
+        padding: 10px;
+    }
+
+    .footer-main {
+        text-align: center;
+    }
+
+    .footer-main img {
+        margin-bottom: 10px;
+    }
+
+    .footer-main h4 {
+        margin: 5px 0;
+    }
+
+    .footer-main button {
+        margin-top: 10px;
+    }
+}
