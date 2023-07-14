@@ -76,7 +76,7 @@ function Navbar() {
                   Women Fashion
                 </Link>
                 <Link
-                  to="/Men"
+                  to="/men"
                   className="dropdown-item"
                   onClick={handleDropdownItemClick}
                 >
@@ -138,10 +138,10 @@ function Navbar() {
 
           <div className="dropdown">
             <div className="nav-link" onClick={toggleLoginDropdown}>
-                <Link to="/register" className="nav-item">
+               <div className="nav-item">
                 Account
-                </Link>
               <MdArrowDropDown style={{ color: "green" }} />
+              </div>
             </div>
             {loginDropdownOpen && (
               <div className="dropdown-menu">
@@ -163,6 +163,11 @@ function Navbar() {
                     className="dropdown-item"
                     onClick={handleDropdownItemClick} >
                     Admin Login
+                </Link>
+                <Link to="/admin"
+                    className="dropdown-item"
+                    onClick={handleDropdownItemClick} >
+                    Admin
                 </Link>
               
               </div>

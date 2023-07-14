@@ -5,6 +5,10 @@ import './Cart.css'
 
 
 function Cart() {
+
+
+
+
   return (
     <div className='main-cart'>
         <div className='cart-content1'>
@@ -20,5 +24,6 @@ function Cart() {
     </div>
   )
 }
+
 
 export default Cart

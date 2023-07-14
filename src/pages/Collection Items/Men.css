@@ -20,7 +20,7 @@
     margin: 10px;
 }
 
-.cards {
+.men-cards {
     width: 30%;
     border-radius: 8px;
     margin: 10px;
@@ -29,14 +29,16 @@
     box-shadow: 3px 3px 10px #f9004d;
 }
 
-.cards:hover {
+.men-cards:hover {
     box-shadow: 10px 5px 10px 5px #f9004d;
 }
 
-.image img {
+.men-image img {
     width: 420px;
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
+    padding: 5px;
+    border-radius: 8px;
 }
 
 .title {

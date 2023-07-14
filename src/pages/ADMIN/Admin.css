@@ -1,0 +1,60 @@
+.admin-page {
+    display: flex;
+    background-color: rgb(130, 223, 130);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    width: 97%;
+    height: 80vh;
+    background: cover;
+}
+
+
+.side-navbar {
+    width: 200px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.side-navbar ul {
+    list-style-type: none;
+    padding: 5px;
+    margin: 4px;
+
+}
+
+.side-navbar li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.side-navbar li.active {
+    background-color: #f9004d;
+    border-radius: 8px;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.add-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    height: 100%;
+}
+
+.add-item input {
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    border: 3px solid black;
+}

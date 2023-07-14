@@ -11,8 +11,9 @@ function Women() {
   
 
     <div className="card-container">
-    <div className="cards">
-        <div className="image">
+
+    <div className="cards-women">
+    <div className="women">
     <img src='./women1.jpg'/>
         </div>
         <div className="title">
@@ -32,8 +33,8 @@ function Women() {
         {/* second container */}
 
        
-    <div className="cards">
-        <div className="image">
+      <div className="cards-women">
+      <div className="women">
     <img src='./women4.jpg'/>
         </div>
         <div className="title">
@@ -53,8 +54,8 @@ function Women() {
 
    {/* third */}
   
-    <div className="cards">
-        <div className="image">
+   <div className="cards-women">
+   <div className="women">
     <img src='./women2.jpg'/>
         </div>
         <div className="title">
@@ -74,8 +75,8 @@ function Women() {
         {/* forth */}
 
     
-    <div className="cards">
-        <div className="image">
+        <div className="cards-women">
+        <div className="women">
     <img src='./women3.jpg'/>
         </div>
         <div className="title">
@@ -95,8 +96,8 @@ function Women() {
         {/* fifth */}
 
        
-    <div className="cards">
-        <div className="image">
+        <div className="cards-women">
+        <div className="women">
     <img src='./women5.png'/>
         </div>
         <div className="title">
@@ -115,8 +116,8 @@ function Women() {
         
         {/* sixth */}
        
-    <div className="cards">
-        <div className="image">
+        <div className="cards-women">
+        <div className="women">
     <img src='./women1.jpg'/>
         </div>
         <div className="title">

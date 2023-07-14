@@ -3,12 +3,14 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {useNavigate} from 'react-router-dom'
+import {Context} from '../../components/userContext/Context';
+import {useContext} from 'react'
 import './AdminLogin.css'
 
 
 function AdminLogin() {
 
-
+    const {user, dispatch} = useContext(Context)
   
 
     const navigate = useNavigate();
@@ -22,10 +24,20 @@ function AdminLogin() {
 
         const AdminSubmission = (data) => {
             console.log(data);
-            reset();
-            alert('Admin Login Successful');
-            navigate('/AdminLogin');
-        };
+                if (data){
+                    dispatch({type: "LOGIN_SUCCESS", payload:data})
+                    alert("Logged in successfully");
+                    console.log(data);
+                     reset();
+                 alert('Admin Login Successful');
+                 navigate('/Admin');
+        } else {
+            dispatch({type: "LOGIN_FAILURE"})
+            alert("Login failed");
+                  
+                }
+            };
+
 
   return (
     
@@ -64,5 +76,6 @@ function AdminLogin() {
 
   )
 }
+
 
 export default AdminLogin

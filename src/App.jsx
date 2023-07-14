@@ -18,6 +18,7 @@ import OrderCancellation from './pages/OrderCancellation'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import AdminLogin from './pages/ADMIN/AdminLogin'
+import Admin from './pages/ADMIN/Admin'
 
 
 
@@ -42,6 +43,7 @@ function App() {
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/adminlogin" element={<AdminLogin/>}/>
+        <Route path="/admin" element={<Admin/>}/>
         
 
 

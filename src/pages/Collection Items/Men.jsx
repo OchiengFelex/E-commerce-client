@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Men.css'
 
 function Men() {
@@ -9,8 +10,8 @@ function Men() {
       
     
         <div className="card-container">
-        <div className="cards">
-            <div className="image">
+        <div className="men-cards">
+        <div className="men-image">
         <img src='./men0.jpg'/>
             </div>
             <div className="title">
@@ -30,8 +31,8 @@ function Men() {
             {/* second container */}
     
            
-        <div className="cards">
-            <div className="image">
+            <div className="men-cards">
+            <div className="men-image">
         <img src='./men2.jpg'/>
             </div>
             <div className="title">
@@ -51,8 +52,8 @@ function Men() {
     
        {/* third */}
       
-        <div className="cards">
-            <div className="image">
+       <div className="men-cards">
+       <div className="men-image">
         <img src='./men3.jpg'/>
             </div>
             <div className="title">
@@ -71,9 +72,8 @@ function Men() {
             
             {/* forth */}
     
-        
-        <div className="cards">
-            <div className="image">
+            <div className="men-cards">
+            <div className="men-image">
         <img src='./men5.jpg'/>
             </div>
             <div className="title">
@@ -93,8 +93,8 @@ function Men() {
             {/* fifth */}
     
            
-        <div className="cards">
-            <div className="image">
+            <div className="men-cards">
+            <div className="men-image">
         <img src='./men1.jpg'/>
             </div>
             <div className="title">
@@ -113,8 +113,8 @@ function Men() {
             
             {/* sixth */}
            
-        <div className="cards">
-            <div className="image">
+            <div className="men-cards">
+            <div className="men-image">
         <img src='./men4.jpg'/>
             </div>
             <div className="title">
