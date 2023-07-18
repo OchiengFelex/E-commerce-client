@@ -9,11 +9,20 @@ import {BsCollectionPlay} from 'react-icons/bs';
 import {GrRestroomWomen} from 'react-icons/gr';
 import {GrRestroomMen} from 'react-icons/gr';
 import {FiLogOut} from 'react-icons/fi';
-
-
+import { AdminContext } from '../components/userContext/Context';
+import { useContext } from 'react';
 import "./Navbar.css";
 
+
+
 function Navbar() {
+
+    const { admin, dispatch } = useContext(AdminContext);
+
+    const handleLogout = () => {
+        dispatch({ type: "LOGOUT" });
+    };
+
   const [accountDropdownOpen, setAccountDropdownOpen] = useState(false);
   const [helpDropdownOpen, setHelpDropdownOpen] = useState(false);
   const [loginDropdownOpen, setLoginDropdownOpen] = useState(false);
@@ -164,18 +173,30 @@ function Navbar() {
                     onClick={handleDropdownItemClick} >
                     Admin Login
                 </Link>
-                <Link to="/admin"
-                    className="dropdown-item"
-                    onClick={handleDropdownItemClick} >
-                    Admin
-                </Link>
+
+                {
+                    admin && (
+                        <Link to="/admin"
+                            className="dropdown-item"
+                            onClick={handleDropdownItemClick} >
+                            Admin
+                        </Link>
+                    )
+                }
               
               </div>
             )}
           </div>
           <div className="nav-item">
-                Admin Out
-              <FiLogOut style={{color:"red"}} />
+
+                {
+                    admin && (
+                        <Link onClick={handleLogout} className="nav-item" to="/" style={{color:"purple"}}>
+                        Admin Out
+                      <FiLogOut style={{color:"red"}} />
+                    </Link>
+                    )
+                }
           </div>
         </div>
       </div>

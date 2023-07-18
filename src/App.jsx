@@ -19,10 +19,15 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import AdminLogin from './pages/ADMIN/AdminLogin'
 import Admin from './pages/ADMIN/Admin'
+import { AdminContext } from './components/userContext/Context';
+import { useContext } from 'react';
+
 
 
 
 function App() {
+
+    const { admin} = useContext(AdminContext);
   
 
   return (
@@ -42,8 +47,8 @@ function App() {
         <Route path="/ordercancellation" element={<OrderCancellation/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/adminlogin" element={<AdminLogin/>}/>
-        <Route path="/admin" element={<Admin/>}/>
+        <Route path="/adminlogin" element={ <AdminLogin/> }/>
+        <Route path="/admin" element={ admin ? <Admin/> : <Home/> }/>
         
 
 

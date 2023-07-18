@@ -3,41 +3,51 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {useNavigate} from 'react-router-dom'
-import {Context} from '../../components/userContext/Context';
-import {useContext} from 'react'
 import './AdminLogin.css'
+import Axios from 'axios';
+import { AdminContext } from '../../components/userContext/Context';
+import { useContext } from 'react';
 
 
 function AdminLogin() {
 
-    const {user, dispatch} = useContext(Context)
-  
+    const { admin, dispatch } = useContext(AdminContext);
 
     const navigate = useNavigate();
       const schema= yup.object().shape({
-        AdminName: yup.string().required('AdminName is required'),
-        Password: yup.string().min(4).max(100).required('Password is required'),
-        ConfirmPassword: yup.string().oneOf([yup.ref('Password'), null], 'Passwords must match'),
+        admin_name: yup.string().required('AdminName is required'),
+        admin_password: yup.string().min(4).max(100).required('Password is required'),
+        ConfirmPassword: yup.string().oneOf([yup.ref('admin_password'), null], 'Passwords must match'),
       });
     
       const { register, handleSubmit, formState: { errors }, reset } = useForm({ resolver: yupResolver(schema) });
 
         const AdminSubmission = (data) => {
-            console.log(data);
-                if (data){
-                    dispatch({type: "LOGIN_SUCCESS", payload:data})
-                    alert("Logged in successfully");
-                    console.log(data);
-                     reset();
-                 alert('Admin Login Successful');
-                 navigate('/Admin');
-        } else {
-            dispatch({type: "LOGIN_FAILURE"})
-            alert("Login failed");
-                  
-                }
-            };
+            Axios.post("http://localhost:8081/auth/admin/login", data)
+                .then((response) => {
+                    if (data.token) {
+                        navigate('/admin')
+                    }  
+                    dispatch({ type: "LOGIN_SUCCESS", payload: response.data }); 
+               response.data.message && alert(response.data.message);
+               alert("Admin Login Successful")
+               reset();
+               console.log(response.data) 
+                navigate('/admin')
+            
+                })
+                .catch(({response}) => {
+                    alert(response.data.error);
+                })
+        };
 
+
+                  
+                   
+                  
+             
+                
+      
 
   return (
     
@@ -54,12 +64,12 @@ function AdminLogin() {
     <h1  style={{ color: '#950740'}}>Admin Login</h1><br /><br/>
     <form onSubmit={handleSubmit(AdminSubmission)}>
     <label>Admin Name</label><br /><br />
-          <input type='text' placeholder='Admin name' {...register('AdminName')} /><br />
-          <p>{errors.AdminName?.message}</p><br/>
+          <input type='text' placeholder='Admin name' {...register('admin_name')} /><br />
+          <p>{errors.admin_name?.message}</p><br/>
 
           <label>Enter Password</label><br /><br />
-          <input type='password' placeholder='Password' {...register('Password')} /><br />
-          <p>{errors.Password?.message}</p><br/>
+          <input type='password' placeholder='Password' {...register('admin_password')} /><br />
+          <p>{errors.admin_password?.message}</p><br/>
 
           <label>Confirm Password</label><br/><br/>
             <input type='password' placeholder='Confirm Password' {...register('ConfirmPassword')} /><br />

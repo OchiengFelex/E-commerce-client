@@ -6,16 +6,18 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
+import Axios from 'axios';
+
 
 function Register() {
   const navigate = useNavigate();
 
   // Define the validation schema using yup
   const schema = yup.object().shape({
-    username: yup.string().required('Use any preferred username'),
-    email: yup.string().email().required('Email is required'),
-    password: yup.string().min(4).max(10).required('Password is required'),
-    confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'Passwords must match'),
+    Username: yup.string().required('Use any preferred username'),
+    Email: yup.string().email().required('Email is required'),
+    Password: yup.string().min(4).max(10).required('Password is required'),
+    confirmPassword: yup.string().oneOf([yup.ref('Password'), null], 'Passwords must match'),
   });
 
   // Initialize react-hook-form with the validation schema
@@ -25,10 +27,18 @@ function Register() {
 
   // Handle form submission
   const handleSubmission = (data) => {
-    console.log(data);
-    alert('Registration Successful');
-    reset();
-    navigate('/login');
+    Axios.post('http://localhost:8081/auth/register', data)
+    .then((response) => {
+   response.data.message && alert(response.data.message);
+   alert("User crested Successful")
+   reset();
+   console.log(response.data) 
+    navigate('/login')
+
+    })
+    .catch(({response}) => {
+        alert(response.data.error);
+    })
   };
 
   return (
@@ -44,16 +54,16 @@ function Register() {
           <form onSubmit={handleSubmit(handleSubmission)}>
 
             <label>Username</label><br /><br />
-            <input type='text' placeholder='Username' {...register('username')} /><br />
-            <p>{errors.username?.message}</p><br />
+            <input type='text' placeholder='Username' {...register('Username')} /><br />
+            <p>{errors.Username?.message}</p><br />
 
             <label>Email</label><br /><br />
-            <input type='email' placeholder='Email' {...register('email')} /><br />
-            <p>{errors.email?.message}</p><br />
+            <input type='email' placeholder='Email' {...register('Email')} /><br />
+            <p>{errors.Email?.message}</p><br />
 
             <label>Password</label><br /><br />
-            <input type='password' placeholder='Password' {...register('password')} /><br />
-            <p>{errors.password?.message}</p><br />
+            <input type='password' placeholder='Password' {...register('Password')} /><br />
+            <p>{errors.Password?.message}</p><br />
 
             <label>Confirm Password</label><br /><br />
             <input type="password" placeholder='Confirm Password' {...register('confirmPassword')} /><br />

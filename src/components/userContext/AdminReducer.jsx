@@ -1,23 +1,23 @@
 
 
-const Reducer = (state, action) => {
+const  adminReducer = (state, action) => {
     switch (action.type) {
 
         case "LOGIN_SUCCESS":
             return {
-                user: action.payload
+                admin: action.payload
             }
         case "LOGIN_FAILURE":
             return {
-                user: null
+                admin: null
             }
         case "LOGOUT":
             return {
-                user: null
+                admin: null
             }
         default:
             return state;
     }
 }
 
-export default Reducer;
+export default adminReducer;

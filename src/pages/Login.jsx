@@ -1,11 +1,10 @@
 
-
-
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {useNavigate} from 'react-router-dom'
+import Axios from 'axios';
 
 import './Login.css'
 
@@ -18,7 +17,7 @@ function Login() {
 
     const navigate = useNavigate();
     const schema = yup.object().shape({
-        username: yup.string().required('Username is required'),
+        Username: yup.string().required('Username is required'),
         Password: yup.string().min(4).max(100).required('Password is required'),
       });
 
@@ -29,10 +28,18 @@ function Login() {
 
 
         const Submission = (data) => {
-            console.log(data);
-            reset();
-            alert('Login Successful');
-            navigate('/collections');
+            Axios.post("http://localhost:8081/auth/login", data)
+            .then((response) => {
+           response.data.message && alert(response.data.message);
+           alert("User Logged in  Successful")
+           reset();
+           console.log(response.data) 
+            navigate('/collections')
+        
+            })
+            .catch(({response}) => {
+                alert(response.data.error);
+            })
         };
       
 
@@ -51,8 +58,8 @@ function Login() {
     <h1  style={{ color: '#950740'}}>Login</h1><br /><br/>
     <form onSubmit={handleSubmit(Submission)}>
     <label>User Name</label><br /><br />
-          <input type='text' placeholder='username' {...register('username')} /><br />
-          <p>{errors.username?.message}</p><br/>
+          <input type='text' placeholder='username' {...register('Username')} /><br />
+          <p>{errors.Username?.message}</p><br/>
 
           <label>Enter Password</label><br /><br />
           <input type='password' placeholder='Password' {...register('Password')} /><br />

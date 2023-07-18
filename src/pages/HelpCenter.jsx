@@ -4,6 +4,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
 import './HelpCenter.css'
+import Axios from 'axios';
 
 function HelpCenter() {
 
@@ -12,7 +13,7 @@ function HelpCenter() {
     // Define the validation schema using yup
     const schema = yup.object().shape({
          Name: yup.string().required('Name is required'),
-         email: yup.string().email().required('Email is required'),
+         Email: yup.string().email().required('Email is required'),
         Query: yup.string().max(250) .required(),
     });
 
@@ -21,9 +22,19 @@ function HelpCenter() {
       });
 
         const QuerySubmit = (data) => {
-        console.log(data);
-        reset();
-        };
+            Axios.post('http://localhost:8081/help', data)
+            .then((response) => {
+                response.data.message && alert(response.data.message);
+                reset();
+                console.log(response.data) 
+                 navigate('/help')
+             
+                 })
+                 .catch(({response}) => {
+                     alert(response.data.error);
+                 })
+         };
+
 
   return (
     <div className="main-help">
@@ -72,8 +83,8 @@ function HelpCenter() {
                  
                  <label>
                  Email:
-                <input type="email" placeholder='email' {...register('email')} />
-                 <p>{errors.email?.message}</p><br />
+                <input type="email" placeholder='email' {...register('Email')} />
+                 <p>{errors.Email?.message}</p><br />
                  </label>
                   <br />
 
